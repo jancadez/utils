@@ -67,8 +67,9 @@ _Static_assert((HASHMAP_INIT_CAP & (HASHMAP_INIT_CAP - 1)) == 0, "HASHMAP_INIT_C
     bool Name##Map_put(Name##Map* map, StringView key, ValueType value);                                               \
     bool Name##Map_set(Name##Map* map, StringView key, ValueType value);                                               \
     bool Name##Map_get(Name##Map* map, StringView key, ValueType* out);                                                \
-    bool Name##Map_has(Name##Map* map, StringView key);                                                                \
-                                                                                                                       \
+    bool Name##Map_has(Name##Map* map, StringView key);
+
+#define HASHMAP_DEFINE(Name, ValueType)                                                                                \
     void Name##Map_grow(Name##Map* map) {                                                                              \
         Name##Entry* entries = map->entries;                                                                           \
         size_t entry_count = map->cap;                                                                                 \
